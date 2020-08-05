@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HospitalDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="varchar(max)" />
+          <Property Name="FileNo" Type="int" />
+          <Property Name="CitizenId" Type="varchar(max)" />
+          <Property Name="Birthdate" Type="date" />
+          <Property Name="Gender" Type="tinyint" />
+          <Property Name="Nationality" Type="varchar(max)" />
+          <Property Name="PhoneNumber" Type="varchar(max)" />
+          <Property Name="Email" Type="varchar(max)" />
+          <Property Name="Country" Type="varchar(max)" />
+          <Property Name="City" Type="varchar(max)" />
+          <Property Name="Street" Type="varchar(max)" />
+          <Property Name="Address1" Type="varchar(max)" />
+          <Property Name="Address2" Type="varchar(max)" />
+          <Property Name="ContactPerson" Type="varchar(max)" />
+          <Property Name="ContactRelation" Type="varchar(max)" />
+          <Property Name="ContactPhone" Type="varchar(max)" />
+          <Property Name="Photo" Type="varchar(max)" />
+          <Property Name="FirstVisitDate" Type="date" />
+          <Property Name="RecordCreationDate" Type="date" />
+        </EntityType>
+        <EntityContainer Name="HospitalDBModelStoreContainer">
+          <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HospitalDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FileNo" Type="Int32" />
+          <Property Name="CitizenId" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Birthdate" Type="DateTime" Precision="0" />
+          <Property Name="Gender" Type="Byte" />
+          <Property Name="Nationality" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Street" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Address1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Address2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ContactPerson" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ContactRelation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ContactPhone" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FirstVisitDate" Type="DateTime" Precision="0" />
+          <Property Name="RecordCreationDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityContainer Name="HospitalDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Patients" EntityType="Self.Patient" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HospitalDBModelStoreContainer" CdmEntityContainer="HospitalDBEntities">
+          <EntitySetMapping Name="Patients">
+            <EntityTypeMapping TypeName="HospitalDBModel.Patient">
+              <MappingFragment StoreEntitySet="Patient">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FileNo" ColumnName="FileNo" />
+                <ScalarProperty Name="CitizenId" ColumnName="CitizenId" />
+                <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="ContactRelation" ColumnName="ContactRelation" />
+                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="FirstVisitDate" ColumnName="FirstVisitDate" />
+                <ScalarProperty Name="RecordCreationDate" ColumnName="RecordCreationDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
